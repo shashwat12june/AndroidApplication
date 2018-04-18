@@ -52,21 +52,21 @@
             android:layout_height="120dp"
             android:orientation="horizontal"
             android:weightSum="1">
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="match_parent"
-                android:id="@+id/FindTrains"
-                android:src="@drawable/searchicon"
-                android:layout_weight=".5"/>
-
-
             <ImageView
                 android:id="@+id/canceledtrain"
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:layout_weight=".5"
                 android:src="@drawable/canceledtrain" />
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:id="@+id/reschedule"
+                android:src="@drawable/reschdl"
+                android:layout_weight=".5"/>
+
+
 
 
         </LinearLayout>

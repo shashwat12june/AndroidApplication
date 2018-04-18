@@ -29,7 +29,7 @@ import java.util.Map;
 import Network.Volley_Request;
 
 public class HomeScreen extends AppCompatActivity implements View.OnClickListener,TextToSpeech.OnInitListener{
-ImageView pnr,liveStatus,findTrain,canceledtrain;
+ImageView pnr,liveStatus,resschedule,canceledtrain;
 Button signout,btnspeak;
     private TextToSpeech tts;
 Intent i;
@@ -43,14 +43,14 @@ String url,result;
         setContentView(R.layout.activity_home_screen);
 pnr=findViewById(R.id.pnrStataus);
 liveStatus=findViewById(R.id.LiveTrainStataus);
-findTrain=findViewById(R.id.FindTrains);
+resschedule=findViewById(R.id.reschedule);
         builder = new AlertDialog.Builder(this);
 btnspeak=findViewById(R.id.btnSpeak);
 canceledtrain=findViewById(R.id.canceledtrain);
         signout=findViewById(R.id.signout);
         tts = new TextToSpeech(this, this);
 pnr.setOnClickListener(this);
-
+resschedule.setOnClickListener(this);
 liveStatus.setOnClickListener(this);
 signout.setOnClickListener(this);
 btnspeak.setOnClickListener(this);
@@ -79,7 +79,7 @@ i=new Intent(this,MainActivity.class);
             {
                 Bundle b=new Bundle();
                 b.putString("message","Please enter your pnr number");
-                b.putString("hint","pnr <your pnr>");
+                b.putString("hint","pnr/<your pnr>");
                 b.putString("type","pnr");
                 i.putExtras(b);
                 startActivity(i);
@@ -98,12 +98,20 @@ i=new Intent(this,MainActivity.class);
             {
                 Bundle b=new Bundle();
                 b.putString("message","Please enter date");
-                b.putString("hint","<dd-mm-yyyy>");
+                b.putString("hint","c/<dd-mm-yyyy>");
                 b.putString("type","canceledtrains");
                 i.putExtras(b);
                 startActivity(i);
                 break;}
-
+            case R.id.reschedule:
+            {
+                Bundle b=new Bundle();
+                b.putString("message","Please enter date");
+                b.putString("hint","r/<dd-mm-yyyy>");
+                b.putString("type","rescheduledtrains");
+                i.putExtras(b);
+                startActivity(i);
+                break;}
             case R.id.btnSpeak:
             {
 

@@ -12,7 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -35,8 +35,8 @@ String results;
     EditText txtSpeechInput;
     private TextToSpeech tts,tts2;
     String search,message,type,url,hint;
-
-    TextView result;
+  ImageView img;
+    EditText result;
     Button btnSpeak,go;
 ProgressDialog dialog;
     AlertDialog.Builder builder;
@@ -57,12 +57,29 @@ Bundle b=getIntent().getExtras();
 
         builder = new AlertDialog.Builder(this);
         signOut=findViewById(R.id.signout);
+        img=findViewById(R.id.imgView);
         txtSpeechInput =  findViewById(R.id.txtSpeechInput);
         btnSpeak = (Button) findViewById(R.id.btnSpeak);
        go = (Button) findViewById(R.id.go);
         result=findViewById(R.id.response);
      dialog=new ProgressDialog(this);
      dialog.setMessage("Loading");
+     if(type.equals("pnr"))
+     {
+         img.setImageResource(R.drawable.pnr);
+     }
+     else  if(type.equals("LiveStatus"))
+     {
+         img.setImageResource(R.drawable.trainlive);
+     }
+     else  if(type.equals("canceledtrains"))
+     {
+         img.setImageResource(R.drawable.canceledtrain);
+     }
+     else  if(type.equals("rescheduledtrains"))
+     {
+         img.setImageResource(R.drawable.reschdl);
+     }
         speakMessage();
         txtSpeechInput.setHint(hint);
 go.setOnClickListener(new View.OnClickListener() {
@@ -132,13 +149,9 @@ go.setOnClickListener(new View.OnClickListener() {
 
     public void makeStringRequest(final String text)
     {
-        if(type.equals("pnr"))
-        {
-         url = "http://shanky.xyz:5000/?q="+text;}
-        else if (type.equals("LiveStatus"))
-        { url = "https://api.railwayapi.com/v2/live/train/"+text+"/apikey/hol204gnrw/";}
-        else if (type.equals("canceledtrains"))
-        { url = "https://api.railwayapi.com/v2/rescheduled/date/"+text+"/apikey/<apikey>/";}
+
+         url = "http://shanky.xyz:5000/?q="+text;
+
         dialog.show();
         StringRequest StringReq = new StringRequest(Request.Method.GET,
                 url,

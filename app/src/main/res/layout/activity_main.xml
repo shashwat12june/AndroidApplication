@@ -7,6 +7,15 @@
     android:background="#ffffff"
     tools:context="com.ssappclinic.railwayassistant.MainActivity">
 
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/imgView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/searchicon"
+   />
     <Button
         android:id="@+id/signout"
         android:layout_width="wrap_content"
@@ -25,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="150dp"
         android:gravity="center"
         android:textSize="20sp"
         android:hint="Press the mic icon.."
@@ -37,14 +46,14 @@
         android:layout_height="40dp"
         android:layout_below="@+id/txtSpeechInput"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="10dp"
         android:background="#536872"
         android:text="Go"
         android:textColor="#ffffff" />
-    <TextView
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="270dp"
         android:textSize="15sp"
         android:gravity="center"
         android:id="@+id/response"/>
@@ -54,7 +63,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+       android:layout_marginTop="400dp"
         android:background="@drawable/mic_icon" />
 
 </RelativeLayout>
